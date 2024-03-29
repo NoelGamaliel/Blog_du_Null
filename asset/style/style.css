@@ -120,3 +120,83 @@ nav ul li a:hover {
     justify-content:center;
     color: #fff;
 }
+
+/******* form_login ********/
+.form_login {
+    width: 45%;
+    height: 45vh;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-50%, -50%);
+}
+
+.form_login form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px;
+}
+
+.form_login form label {
+    margin-bottom: 12px;
+}
+
+.form_login form .email {
+    margin-bottom: 20px;
+    padding: 10px 12px;
+}
+
+.form_login form input[type="password"] {
+    margin-bottom: 20px;
+    padding: 10px 12px;
+}
+
+.form_login form input[type="submit"] {
+    padding: 12px 15px;
+}
+
+/******* form_register ********/
+.form_register {
+    width: 45%;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-50%, -50%);
+}
+
+.form_register form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px;
+}
+
+.form_register form label {
+    margin-bottom: 12px;
+}
+
+.form_register form .email {
+    margin-bottom: 12px;
+    padding: 8px 10px;
+}
+
+.form_register form input[type="text"] {
+    margin-bottom: 12px;
+    padding: 8px 10px;
+}
+
+.form_register form input[type="password"] {
+    margin-bottom: 12px;
+    padding: 8px 10px;
+}
+
+.form_register form input[type="submit"] {
+    padding: 12px 15px;
+}

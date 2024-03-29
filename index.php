@@ -14,10 +14,11 @@
 <body>
     <main>
         <!-- Header -->
-        <?php include_once ('header.php');?>
+        <?php include_once ('includes/header.php');?>
 
         <!-- Content -->
-        <?php include_once ('content.php');?>
+        <?php include_once ('includes/content.php');?>
+
     </main>
 </body>
 </html>
