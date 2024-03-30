@@ -32,6 +32,7 @@ include_once('asset/_cnx/_cnx.php');
                 <input type="submit" value="Connexion" name="connexion">
             </form>
         </div>
+    </section>
 </main>
 </body>
 
