@@ -1,8 +1,22 @@
 <?php
 
+session_start();
+
 //include the database:
 include_once('asset/_cnx/_cnx.php');
+    
+    $message='';
 
+    if (isset($_POST['connexion'])) {
+        $message='';
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        
+        if (empty($email) || empty($password)) {
+            echo "Please complete your email address and password";
+        } 
+         
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +37,11 @@ include_once('asset/_cnx/_cnx.php');
         <div class="form_login">
             <?php $message;  ?>
             <form action="login.php" method="post">
-                <label for="">Email:</label>
-                <input type="email" class="email" name="email" placeholder="Enter your address Email">
+                <label for="email">Email:</label>
+                <input type="email" class="email" name="email" placeholder="Enter your address Email" require>
 
                 <label for="">Password:</label>
-                <input type="password" name="email" placeholder="Enter your password">
+                <input type="password" name="password" placeholder="Enter your password" require>
 
                 <input type="submit" value="Connexion" name="connexion">
             </form>

@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+
+ echo $_SESSION['firstname'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

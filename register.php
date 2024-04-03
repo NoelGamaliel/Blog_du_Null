@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //include the database:
     include_once('asset/_cnx/_cnx.php');
 
