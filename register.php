@@ -4,7 +4,6 @@
     include_once('asset/_cnx/_cnx.php');
 
     if (isset($_POST['register'])) {
-        $message = "";
         $firstname = htmlentities($_POST['firstname']);
         $lastname = htmlentities($_POST['lastname']);
         $email = htmlentities($_POST['email']);
@@ -12,25 +11,36 @@
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email']) || empty($_POST['password'])) {
-            echo "Your champs are empty";
-        } 
-        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "Please enter a valid email address"; 
-        } 
-
-        else {
-            //
-            $req = "INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
-            $stmt = $conn->prepare($req);
-
-            if ($stmt->execute([$firstname, $lastname, $email, $password])) {
-                echo "Your data has been inserted";
-            }
-            else 
-            {
-                echo "Error while inserting data";
-            }
+            echo '<script>alert("Please complete your form...");</script>';
         }
+        else {
+            //check if existing email is already:
+            $emailVerified = $conn->query('SELECT * FROM `users` WHERE `email` = "'. $email. '" LIMIT 1');
+            $emailVerified->execute();
+            $result = $emailVerified->fetchAll(PDO::FETCH_ASSOC);
+
+            if (count($result) > 0) {
+                
+                echo '<script>alert("This email exists already... Go back to the register form");</script>';
+                
+            }
+            else {
+                //insert the new user:
+                $insertUsers = "INSERT INTO `users` (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+                $stmt = $conn->prepare($insertUsers);
+
+                if ($stmt->execute([$firstname, $lastname, $email, $password])) {
+                    //
+                    echo '<script>alert("Your register has successfully...");</script>'; 
+                    //redirect to the login page:
+                    header('Location: login.php');
+                }
+                else {
+                    echo '<script>alert("Error while inserting data");</script>';
+                }
+            }            
+        }
+
     }
             
 ?>

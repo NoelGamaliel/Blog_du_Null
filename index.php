@@ -1,8 +1,8 @@
 <?php 
 
-session_start();
+//session_start();
 
- echo $_SESSION['firstname'];
+ //echo $_SESSION['firstname'];
 
 ?>
 <!DOCTYPE html>
